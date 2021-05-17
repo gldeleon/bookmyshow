@@ -35,6 +35,6 @@ app.get("/api/v1/login", (req, res) => {
 
 
 
-app.listen(8000, function(){
+app.listen(80, function(){
     console.log("iniciado el server");
 });
