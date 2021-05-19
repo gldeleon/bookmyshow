@@ -8,7 +8,7 @@ RUN mkdir -p /var/www/html
 WORKDIR /var/www/html/
 
 #Copy the package.json
-COPY package*.json /var/www/html
+COPY package*.json /var/www/html/
 
 #Install dependencies
 RUN npm install
