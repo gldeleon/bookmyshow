@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  web:
+    build: .
+    container_name: "bookmyshow"
+    restart: always    
+    ports:
+      - "8080:80"
+    volumes:
+      - "./:/var/www/html/"
+
+  db:
+    platform: linux/x86_64
+    image: mariadb:10.5.8
+    restart: always
+    environment: 
+      MYSQL_ROOT_PASSWORD: $srpago.123
+      MYSQL_DATABASE: srpago
+      MYSQL_USER: srpago
+      MYSQL_PASSWORD: $srpago.123
+    ports: 
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - ./db:/var/lib/mysql
