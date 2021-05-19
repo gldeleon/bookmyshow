@@ -5,7 +5,7 @@ const DBconfig = {
   database: 'bookmyshow',
   user: 'postgres',
   password: '$srpago.123',
-  host: 'localhost'
+  host: 'db'
 } 
 
 const pool = new Pool(DBconfig);
