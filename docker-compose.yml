@@ -10,17 +10,17 @@ services:
     volumes:
       - "./:/var/www/html/"
 
-  db:
-    platform: linux/x86_64
-    image: postgres:9.6
-    restart: always
-    environment: 
-      - POSTGRES_DB=bookmyshow
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=$srpago.123
-    ports:
-      - "5432:5432"
-    expose:
-      - "5432"
-    volumes:
-      - ./db:/var/lib/postgresql/data
+  #db:
+    #platform: linux/x86_64
+    #image: postgres:9.6
+    #restart: always
+    #environment: 
+      #- POSTGRES_DB=bookmyshow
+      #- POSTGRES_USER=postgres
+      #- POSTGRES_PASSWORD=$srpago.123
+    #ports:
+      #- "5432:5432"
+    #expose:
+      #- "5432"
+    #volumes:
+      #- ./db:/var/lib/postgresql/data
