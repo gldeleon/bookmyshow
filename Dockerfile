@@ -21,7 +21,7 @@ RUN npm install
 #EXPOSE 8080
 
 #Run the app
-CMD [ "node", "app.js" ]
+CMD [ "nodemon", "src/app.js" ]
 
 
 RUN pwd

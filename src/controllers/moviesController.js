@@ -1,8 +1,11 @@
 
 //Library
+//const { config } = require("dotenv");
 const { Router } = require("express");
+const jwt = require("jsonwebtoken");
 const router = Router();
 const db = require('../db/database');
+const config = require('../../config');
 
 //app.use(express.json());
 
@@ -43,31 +46,55 @@ router.get(URL + "/movies/:city", async (req, res) => {
     res.json(respuesta)
 })
 
-router.post(URL + "/movies/:movie/buy", async (req, res) => {
-    var id_movie = req.params.movie;   
-    //console.log(id_movie);     
-    try{
-        const mov = 'select * from movies where movie_id = $1';    
-        const val = [id_movie];
-
-        const result = await db.query(mov, val);
-        console.log(result.rows);
-        //obtenemos el precio e insertamos en la tabla ticket
-        var precio = result.rows[0].movie_price;
-
-        //insertamos el ticket
-
-        const ticket = 'insert into ticket values (default, $1, $2, $3)';
-        const values = [id_movie, precio, 1];
-
+/*cambiar a post*/
+router.post(URL + "/movies/buy", async (req, res) => {
+    const token = req.headers['x-access-token'];
+    if(!token){
         var respuesta = {
-            error: false,
-            message: "insertado correctamente",
-            data: precio
+            error: true,
+            message: "authorization required",
+            data: null
         }        
+        //return res.status(401).json
+        res.status(401).json(respuesta)
+    }else{
+        //verificamos el token
+        const decod = jwt.verify(token, config.secret);
+        if(decod){
+            var id_movie = req.body.id_movie;       
+            try{
+                const mov = 'select * from movies where movie_id = $1';    
+                const val = [id_movie];
 
-    }catch(error){
-        console.log(error);
+                const result = await db.query(mov, val);
+                console.log(result);
+                //obtenemos el precio e insertamos en la tabla ticket
+                var precio = result.rows[0].movie_price;
+
+                //insertamos el ticket
+
+                const ticket = 'insert into ticket values (default, $1, $2, $3)';
+                const values = [id_movie, precio, 1];
+                const resu = await db.query(ticket, values);
+
+                if(resu){
+                    var respuesta = {
+                        error: false,
+                        message: "insertado correctamente",
+                        data: resu.rowCount
+                    }        
+                }else{
+                    var respuesta = {
+                        error: true,
+                        message: "error en la bd",
+                        data: null
+                    }        
+                }               
+
+            }catch(error){
+                console.log(error);
+            }    
+        }
     }    
     res.json(respuesta)
 })
