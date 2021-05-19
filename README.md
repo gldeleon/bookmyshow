@@ -79,7 +79,7 @@ Here is the tecnologies i was used:
 * [docker]
 * [jwt]
 * [Google cloud VM]
-* [jenkins] is incomple the connection with github action :(
+* [jenkins] is conected to github, some details when deploying :/
 * [postgresql] not time to make a docker container correctly :(
 
 <!-- GETTING STARTED -->
@@ -135,5 +135,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Leonel De Leon - [@gldeleon](https://twitter.com/gldeleon) - gldeleon@live.com.mx
 
-Project Link: [Live](http://35.192.16.71) - runnig
-Jenkins Link [Live](http://35.192.16.71:8080) - user: srpago, pwd: $srpago.123
+<br />Project Link: [Live](http://35.192.16.71) - runnig
+<br />Jenkins Link [Live](http://35.192.16.71:8080) - user: srpago, pwd: $srpago.123

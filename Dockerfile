@@ -23,8 +23,6 @@ COPY . .
 #Run the app
 RUN apt-get install -y git
 
-RUN echo "aqui vamos papi"
-
 RUN cd /var/www/html/
 
 #RUN npm run prod
