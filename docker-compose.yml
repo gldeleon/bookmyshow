@@ -6,22 +6,21 @@ services:
     container_name: "bookmyshow"
     restart: always    
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - "./:/var/www/html/"
 
   db:
     platform: linux/x86_64
-    image: mariadb:10.5.8
+    image: postgres:9.6
     restart: always
     environment: 
-      MYSQL_ROOT_PASSWORD: $srpago.123
-      MYSQL_DATABASE: srpago
-      MYSQL_USER: srpago
-      MYSQL_PASSWORD: $srpago.123
-    ports: 
-      - "3306:3306"
+      - POSTGRES_DB=bookmyshow
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=$srpago.123
+    ports:
+      - "5432:5432"
     expose:
-      - "3306"
+      - "5432"
     volumes:
-      - ./db:/var/lib/mysql
+      - ./db:/var/lib/postgresql/data

@@ -1,13 +1,10 @@
 
 //Library
-//const { config } = require("dotenv");
 const { Router } = require("express");
 const jwt = require("jsonwebtoken");
 const router = Router();
 const db = require('../db/database');
 const config = require('../../config');
-
-//app.use(express.json());
 
 //App
 //const app = express();
