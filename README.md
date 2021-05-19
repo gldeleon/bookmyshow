@@ -39,11 +39,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 First
 
-Problem Description
+Problem Description <br />
 You have been selected to work on ​the backend​ of a new movie ticketing website (like https://bookmyshow.com​).
 At a minimum, the website is expected to have the following features -
 1. Ability to view all the movies playing in your city
@@ -68,9 +66,9 @@ Earn extra brownie points by doing the following -
 13. Articulate the architecture and the rationale behind your design choice in the readme file in the
 repository.
 How to submit your works?
-● Put all the code in a Github public repo and share the repo URL in reply to the assignment email
-● Commit the pipeline/build config you have used for CICD in the same repo.
-● Share a postman file in the email with links to the APIs hosted in the public cloud.
+<br /> ● Put all the code in a Github public repo and share the repo URL in reply to the assignment email
+<br /> ● Commit the pipeline/build config you have used for CICD in the same repo.
+<br /> ● Share a postman file in the email with links to the APIs hosted in the public cloud.
 
 ### Built With
 
@@ -100,16 +98,15 @@ You need to get installed docker-CE
    ```sh
    docker-composer up -d
    ```
-3. Open your preferer browser an tipe
-   ```web
-   localhost
+3. Open your preferer browser and tipe:
+
+   http://localhost
 
 4. I havent time to make a migrations but in the db folder is an database.sql file, please install postresql and then run the sql :(
-   ```
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Now the app is running so open postman or another one app to test rest api endpoints:
+Now the app is running so on port 80 open postman or another one app to test rest api endpoints:
 
 * localhost/api/v1/movies
 * localhost/api/v1/movies/CDMX
@@ -138,4 +135,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Leonel De Leon - [@gldeleon](https://twitter.com/gldeleon) - gldeleon@live.com.mx
 
-Project Link: [Live](35.192.16.71) - runnig
+Project Link: [Live](http://35.192.16.71) - runnig
