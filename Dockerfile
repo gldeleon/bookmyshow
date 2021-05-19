@@ -19,7 +19,7 @@ COPY . /var/www/html
 #Bundle app source
 
 #Mapping the port to docker daemon
-EXPOSE 80
+#EXPOSE 80
 
 #Run the app
 RUN apt-get install -y git
@@ -34,4 +34,4 @@ RUN chmod -R 776 /var/www/html/
 
 RUN echo "aqui vamos papi"
 
-CMD [ "nodemon", "/var/www/html/src/server.js" ]
+CMD [ "node", "/var/www/html/src/index.js" ]
